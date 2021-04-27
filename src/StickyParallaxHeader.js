@@ -347,7 +347,6 @@ class StickyParallaxHeader extends Component {
       headerStyle.map((el) => Object.assign(arrayHeaderStyle, el));
     }
 
-    const scrollViewMinHeight = Dimensions.get('window').height + parallaxHeight - headerHeight;
     const innerScrollHeight = Dimensions.get('window').height - headerHeight - parallaxHeight;
 
     const shouldRenderTabs = tabs && tabs.length > 0;
@@ -370,7 +369,6 @@ class StickyParallaxHeader extends Component {
             setRef(scrollRef, c);
           }}
           contentContainerStyle={{
-            minHeight: scrollViewMinHeight,
             backgroundColor: shouldUseBgColor,
           }}
           onScrollEndDrag={() => this.onScrollEndSnapToEdge(scrollHeight)}
