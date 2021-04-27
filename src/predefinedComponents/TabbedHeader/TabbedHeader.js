@@ -143,6 +143,7 @@ export default class TabbedHeader extends React.Component {
   render() {
     const {
       tabs,
+      customHeaderView,
       headerHeight,
       backgroundColor,
       backgroundImage,
@@ -161,8 +162,9 @@ export default class TabbedHeader extends React.Component {
 
     return (
       <>
-        <StatusBar barStyle="light-content" backgroundColor={backgroundColor} translucent />
+        {/* <StatusBar barStyle="light-content" backgroundColor={backgroundColor} translucent /> */}
         <StickyParallaxHeader
+          customHeaderView={customHeaderView}
           foreground={this.renderForeground(this.scrollY)}
           header={this.renderHeader()}
           deviceWidth={constants.deviceWidth}
