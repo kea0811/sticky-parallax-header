@@ -397,7 +397,7 @@ class StickyParallaxHeader extends Component {
               },
             }
           )}>
-          {customHeaderView()}
+          {customHeaderView && customHeaderView()}
           {shouldRenderTabs && this.renderTabs()}
           <ScrollableTabView
             contentContainerStyles={contentContainerStyles}
