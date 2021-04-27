@@ -324,6 +324,7 @@ class StickyParallaxHeader extends Component {
   render() {
     const {
       backgroundImage,
+      customHeaderView,
       children,
       contentContainerStyles,
       header,
@@ -357,7 +358,6 @@ class StickyParallaxHeader extends Component {
 
     return (
       <View style={styles.container}>
-        {header && this.renderHeader()}
         <AnimatedScrollView
           bounces={bounces}
           overScrollMode="never"
@@ -397,22 +397,7 @@ class StickyParallaxHeader extends Component {
               },
             }
           )}>
-          <View style={{ height: parallaxHeight }} onLayout={(e) => this.onLayout(e)}>
-            <View
-              style={[
-                styles.overScrollPadding,
-                {
-                  backgroundColor: isArray
-                    ? arrayHeaderStyle.backgroundColor
-                    : headerStyle?.backgroundColor,
-                },
-              ]}
-            />
-            {backgroundImage
-              ? this.renderImageBackground(scrollHeight)
-              : this.renderPlainBackground(scrollHeight)}
-            {this.renderForeground(scrollHeight)}
-          </View>
+          {customHeaderView()}
           {shouldRenderTabs && this.renderTabs()}
           <ScrollableTabView
             contentContainerStyles={contentContainerStyles}
