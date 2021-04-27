@@ -161,35 +161,32 @@ export default class TabbedHeader extends React.Component {
     } = this.props;
 
     return (
-      <>
-        {/* <StatusBar barStyle="light-content" backgroundColor={backgroundColor} translucent /> */}
-        <StickyParallaxHeader
-          customHeaderView={customHeaderView}
-          foreground={this.renderForeground(this.scrollY)}
-          header={this.renderHeader()}
-          deviceWidth={constants.deviceWidth}
-          parallaxHeight={sizes.homeScreenParallaxHeader}
-          scrollEvent={event([{ nativeEvent: { contentOffset: { y: this.scrollY.y } } }], {
-            useNativeDriver: false,
-            listener: (e) => scrollEvent && scrollEvent(e),
-          })}
-          headerSize={this.setHeaderSize}
-          headerHeight={headerHeight}
-          tabs={tabs}
-          tabTextStyle={tabTextStyle}
-          tabTextActiveStyle={tabTextActiveStyle}
-          tabTextContainerStyle={tabTextContainerStyle}
-          tabTextContainerActiveStyle={tabTextContainerActiveStyle}
-          tabsContainerBackgroundColor={backgroundColor}
-          tabWrapperStyle={tabWrapperStyle}
-          backgroundImage={backgroundImage}
-          bounces={bounces}
-          snapToEdge={snapToEdge}
-          tabsContainerStyle={tabsContainerStyle}
-          onRef={onRef}>
-          {renderBody('Popular Quizes')}
-        </StickyParallaxHeader>
-      </>
+      <StickyParallaxHeader
+        customHeaderView={customHeaderView}
+        foreground={this.renderForeground(this.scrollY)}
+        header={this.renderHeader()}
+        deviceWidth={constants.deviceWidth}
+        parallaxHeight={sizes.homeScreenParallaxHeader}
+        scrollEvent={event([{ nativeEvent: { contentOffset: { y: this.scrollY.y } } }], {
+          useNativeDriver: false,
+          listener: (e) => scrollEvent && scrollEvent(e),
+        })}
+        headerSize={this.setHeaderSize}
+        headerHeight={headerHeight}
+        tabs={tabs}
+        tabTextStyle={tabTextStyle}
+        tabTextActiveStyle={tabTextActiveStyle}
+        tabTextContainerStyle={tabTextContainerStyle}
+        tabTextContainerActiveStyle={tabTextContainerActiveStyle}
+        tabsContainerBackgroundColor={backgroundColor}
+        tabWrapperStyle={tabWrapperStyle}
+        backgroundImage={backgroundImage}
+        bounces={bounces}
+        snapToEdge={snapToEdge}
+        tabsContainerStyle={tabsContainerStyle}
+        onRef={onRef}>
+        { renderBody && renderBody()}
+      </StickyParallaxHeader>
     );
   }
 }
