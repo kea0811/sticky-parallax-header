@@ -148,6 +148,7 @@ export default class TabbedHeader extends React.Component {
       backgroundColor,
       backgroundImage,
       bounces,
+      contentContainerStyles,
       snapToEdge,
       scrollEvent,
       renderBody,
@@ -173,6 +174,7 @@ export default class TabbedHeader extends React.Component {
         })}
         headerSize={this.setHeaderSize}
         headerHeight={headerHeight}
+        contentContainerStyles={contentContainerStyles}
         tabs={tabs}
         tabTextStyle={tabTextStyle}
         tabTextActiveStyle={tabTextActiveStyle}
